@@ -5,13 +5,14 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Mon May  9 09:37:32 2016 Thomas Fossaert
-## Last update Mon May  9 10:53:57 2016 Thomas Fossaert
+## Last update Mon May  9 11:24:16 2016 Thomas Fossaert
 ##
 
 NAME		=		maze
 
 SRC		=		main.c \
-				print_tab.c
+				print_tab.c \
+				movement.c \
 
 OBJ		=		$(src:.c=.o)
 
