@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon May  9 11:24:27 2016 Thomas Fossaert
-** Last update Mon May  9 14:48:58 2016 Thomas Fossaert
+** Last update Mon May  9 15:54:09 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
@@ -24,52 +24,50 @@ int		my_rand(int min, int max)
   return (rand() % (max - min) + min);
 }
 
-void		go_up(char **maze, int h, int w, int *valor)
+void		go_up(int **maze, int h, int w, int *valor)
 {
   if (h - 2 <= 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h - 2][w] != '*')
+  if (maze[h - 2][w] != 0)
     {
-      maze[h - 2][w] = '*';
-      maze[h - 1][w] = '*';
+      maze[h - 2][w] = 0;
+      maze[h - 1][w] = 0;
       gen_maze(maze, h - 2, w, valor);
     }
 }
 
-void		go_right(char **maze, int h, int w, int *valor)
+void		go_right(int **maze, int h, int w, int *valor)
 {
   if (w + 2 >= valor[1] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w + 2] != '*')
+  if (maze[h][w + 2] != 0)
     {
-      maze[h][w + 2] = '*';
-      maze[h][w + 1] = '*';
+      maze[h][w + 2] = 0;
+      maze[h][w + 1] = 0;
       gen_maze(maze, h, w + 2, valor);
     }
-  else
-    gen_maze(maze, h, w, valor);
 }
 
-void		go_down(char **maze, int h, int w, int *valor)
+void		go_down(int **maze, int h, int w, int *valor)
 {
   if (h + 2 >= valor[0] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h + 2][w] != '*')
+  if (maze[h + 2][w] != 0)
     {
-      maze[h + 2][w] = '*';
-      maze[h + 1][w] = '*';
+      maze[h + 2][w] = 0;
+      maze[h + 1][w] = 0;
       gen_maze(maze, h + 2, w, valor);
     }
 }
 
-void		go_left(char **maze, int h, int w, int *valor)
+void		go_left(int **maze, int h, int w, int *valor)
 {
   if (w - 2 <= 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w - 2] != '*')
+  if (maze[h][w - 2] != 0)
     {
-      maze[h][w - 2] = '*';
-      maze[h][w - 1] = '*';
+      maze[h][w - 2] = 0;
+      maze[h][w - 1] = 0;
       gen_maze(maze, h, w - 2, valor);
     }
 }

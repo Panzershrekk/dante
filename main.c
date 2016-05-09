@@ -5,28 +5,28 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon May  9 09:37:57 2016 Thomas Fossaert
-** Last update Mon May  9 14:48:33 2016 Thomas Fossaert
+** Last update Mon May  9 15:49:30 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
 #include	<stdlib.h>
 #include	"my.h"
 
-char		**malloc_my_maze(char **maze, int height, int width)
+int		**malloc_my_maze(int **maze, int height, int width)
 {
   int		i;
 
   i = 0;
-  maze = malloc(sizeof(char *) * height);
+  maze = malloc(sizeof(int *) * height);
   while (i < height)
     {
-      maze[i] = malloc(sizeof(char) * width);
+      maze[i] = malloc(sizeof(int) * width);
       i++;
     }
   return (maze);
 }
 
-char		**create_maze(int height, int width, char **maze)
+int		**create_maze(int height, int width, int **maze)
 {
   int		i;
   int		j;
@@ -37,30 +37,27 @@ char		**create_maze(int height, int width, char **maze)
       j = 0;
       while (j < width)
 	{
-	  maze[i][j] = 'X';
+	  maze[i][j] = 1;
 	  j++;
 	}
       i++;
     }
-  maze[0][0] = '*';
-  maze[height - 1][width - 1] = '*';
+  maze[0][0] = 0;
+  maze[height - 1][width - 1] = 0;
   return (maze);
 }
 
-char		**gen_maze(char **maze, int h, int w, int *valor)
+int		**gen_maze(int **maze, int h, int w, int *valor)
 {
   int		rand;
 
-  printf("%d,%d\n", h, w);
-  printf("\n");
-  print_my_tab_char(maze, valor[0]);
-  printf("\n");
+  convert_tab(maze, valor[0], valor[1]);
   if (h == valor[0] - 1 && w == valor[1] - 1)
     {
       printf("%s", "c'est gagné");
       return (maze);
     }
-  rand = my_rand(1, 4);
+  rand = my_rand(1, 5);
   if (rand == 1)
     go_up(maze, h, w, valor);
   else if (rand == 2)
@@ -73,7 +70,7 @@ char		**gen_maze(char **maze, int h, int w, int *valor)
 
 int		main(int ac, char **av)
 {
-  char		**maze;
+  int		**maze;
   int		valor[2];
   int		h;
   int		w;
@@ -90,7 +87,7 @@ int		main(int ac, char **av)
       maze = malloc_my_maze(maze, h, w);
       maze = create_maze(h, w, maze);
       maze = gen_maze(maze, 0, 0, valor);
-      print_my_tab_char(maze, h);
+      convert_tab(maze, h, w);
     }
   return (0);
 }
