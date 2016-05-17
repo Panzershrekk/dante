@@ -5,11 +5,12 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Fri Apr  1 11:23:47 2016 Thomas Fossaert
-## Last update Tue May 17 10:52:08 2016 Thomas Fossaert
+## Last update Tue May 17 13:25:22 2016 Thomas Fossaert
 ##
 
 SRC=		main.c \
-		remp_tab.c
+		remp_tab.c \
+		find_path.c
 
 OBJ=            $(SRC:.c=.o)
 

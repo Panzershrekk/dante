@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:21:45 2016 Thomas Fossaert
-** Last update Tue May 17 12:58:02 2016 Thomas Fossaert
+** Last update Tue May 17 14:10:13 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
@@ -16,11 +16,23 @@
 void		print_maze(char **map)
 {
   int		i;
+  int		j;
 
   i = 0;
+  j = 0;
   while (map[i])
     {
-      printf("%s\n", map[i]);
+      while (map[i][j])
+	{
+	  if (map[i][j] == '0' || map[i][j] == 'E')
+	    map[i][j] = 'o';
+	  else if (map[i][j] == '1')
+	    map[i][j] = '.';
+	  printf("%c", map[i][j]);
+	  j++;
+	}
+      printf("\n");
+      j = 0;
       i++;
     }
 }
@@ -70,8 +82,10 @@ int			main(int ac, char **av)
       map = gen_tab(av[1]);
       init_struct(&data, map);
       map[0][0] = 'S';
-      map[data.y_max -1][data.x_max -1] = 'G';
-      print_maze(map);
-    /*find_path(0, 0);*/
+      map[data.y_max -1][data.x_max -1] = 'E';
+      if (find_path(0, 0, &data, map) == 0)
+	print_maze(map);
+      else
+	printf("No soluce\n");
     }
 }

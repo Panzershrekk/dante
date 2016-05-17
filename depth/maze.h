@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:35:43 2016 Thomas Fossaert
-** Last update Tue May 17 11:31:08 2016 Thomas Fossaert
+** Last update Tue May 17 13:33:51 2016 Thomas Fossaert
 */
 
 #ifndef MAZE
@@ -29,5 +29,6 @@ char		**gen_tab(char *str);
 void		*p_error(char *str);
 int		print_str(int i, char *str);
 int		my_strlen(char *str);
+int		find_path(int x, int y, t_data *data, char **map);
 
 #endif
