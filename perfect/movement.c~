@@ -1,11 +1,11 @@
 /*
-** movement.c for movement in /home/fossae_t/rendu/dante
+** movement.c for movement in /home/fossae_t/rendu/dante/perfect
 **
 ** Made by Thomas Fossaert
 ** Login   <fossae_t@epitech.net>
 **
-** Started on  Mon May  9 11:24:27 2016 Thomas Fossaert
-** Last update Mon May  9 15:54:09 2016 Thomas Fossaert
+** Started on  Thu May 12 11:11:55 2016 Thomas Fossaert
+** Last update Thu May 12 16:51:26 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
@@ -24,50 +24,55 @@ int		my_rand(int min, int max)
   return (rand() % (max - min) + min);
 }
 
-void		go_up(int **maze, int h, int w, int *valor)
+int		**go_up(int **maze, int h, int w, int *valor)
 {
-  if (h - 2 <= 0)
+  if (h - 1 <= 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h - 2][w] != 0)
+  else if (maze[h - 2][w] != 0)
     {
       maze[h - 2][w] = 0;
       maze[h - 1][w] = 0;
       gen_maze(maze, h - 2, w, valor);
     }
+  gen_maze(maze, h, w, valor);
 }
 
-void		go_right(int **maze, int h, int w, int *valor)
+int		**go_right(int **maze, int h, int w, int *valor)
 {
-  if (w + 2 >= valor[1] - 1)
+  if (w + 1 >= valor[1] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w + 2] != 0)
+  else if (maze[h][w + 2] != 0)
     {
       maze[h][w + 2] = 0;
       maze[h][w + 1] = 0;
       gen_maze(maze, h, w + 2, valor);
     }
+  gen_maze(maze, h, w, valor);
 }
 
-void		go_down(int **maze, int h, int w, int *valor)
+int		**go_down(int **maze, int h, int w, int *valor)
 {
-  if (h + 2 >= valor[0] - 1)
+  if (h + 1 >= valor[0] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h + 2][w] != 0)
+  else if (maze[h + 2][w] != 0)
     {
       maze[h + 2][w] = 0;
       maze[h + 1][w] = 0;
       gen_maze(maze, h + 2, w, valor);
     }
+  gen_maze(maze, h, w, valor);
 }
 
-void		go_left(int **maze, int h, int w, int *valor)
+
+int		**go_left(int **maze, int h, int w, int *valor)
 {
-  if (w - 2 <= 0)
+  if (w - 1 <= 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w - 2] != 0)
+  else if (maze[h][w - 2] != 0)
     {
       maze[h][w - 2] = 0;
       maze[h][w - 1] = 0;
       gen_maze(maze, h, w - 2, valor);
     }
+  gen_maze(maze, h, w, valor);
 }

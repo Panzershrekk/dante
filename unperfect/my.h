@@ -5,13 +5,14 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Fri Apr  1 11:41:59 2016 Thomas Fossaert
-** Last update Mon May  9 15:36:45 2016 Thomas Fossaert
+** Last update Tue May 10 13:27:57 2016 Thomas Fossaert
 */
 
 #ifndef		_MY_H_
 # define	_MY_H_
 
 void		print_my_tab_char(char **tab, int h);
+void		print_my_tab_int(int **tab, int h, int w);
 int		my_rand(int min, int max);
 void		go_up(int **maze, int h, int w, int *valor);
 void		go_down(int **maze, int h, int w, int *valor);
