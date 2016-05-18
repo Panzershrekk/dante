@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "file.h"
 
-File *initialiser()
+t_file		*initialiser()
 {
-    File *file = malloc(sizeof(*file));
+    t_file *file = malloc(sizeof(*file));
     file->premier = NULL;
 
     return file;
 }
 
 
-void enfiler(File *file, int nvNombre)
+void		enfiler(t_file *file, int nvNombre)
 {
-    Element *nouveau = malloc(sizeof(*nouveau));
+    t_elem *nouveau = malloc(sizeof(*nouveau));
     if (file == NULL || nouveau == NULL)
     {
         exit(EXIT_FAILURE);
@@ -25,7 +25,7 @@ void enfiler(File *file, int nvNombre)
     if (file->premier != NULL) /* La file n'est pas vide */
     {
         /* On se positionne à la fin de la file */
-        Element *elementActuel = file->premier;
+        t_elem *elementActuel = file->premier;
         while (elementActuel->suivant != NULL)
         {
             elementActuel = elementActuel->suivant;
@@ -39,7 +39,7 @@ void enfiler(File *file, int nvNombre)
 }
 
 
-int defiler(File *file)
+int		defiler(t_file *file)
 {
     if (file == NULL)
     {
@@ -51,7 +51,7 @@ int defiler(File *file)
     /* On vérifie s'il y a quelque chose à défiler */
     if (file->premier != NULL)
     {
-        Element *elementDefile = file->premier;
+        t_elem *elementDefile = file->premier;
 
         nombreDefile = elementDefile->nombre;
         file->premier = elementDefile->suivant;
@@ -61,14 +61,14 @@ int defiler(File *file)
     return nombreDefile;
 }
 
-void afficherFile(File *file)
+void		afficherFile(t_file *file)
 {
     if (file == NULL)
     {
         exit(EXIT_FAILURE);
     }
 
-    Element *element = file->premier;
+    t_elem *element = file->premier;
 
     while (element != NULL)
     {
@@ -78,6 +78,3 @@ void afficherFile(File *file)
 
     printf("\n");
 }
-
-
-

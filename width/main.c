@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 16:16:28 2016 Thomas Fossaert
-** Last update Wed May 18 14:04:21 2016 Thomas Fossaert
+** Last update Wed May 18 15:41:17 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -54,13 +54,27 @@ void		*p_error(char *str)
 
 int		main(int ac, char **av)
 {
-    File	*maFile = initialiser();
+    t_file	*maFile = initialiser();
     char	**map;
+    int		i;
+    int		j;
+    t_data	data;
+    int		**map_int;
 
     map = gen_tab(av[1]);
-    enfiler(maFile, 4);
     /*printf("\nEtat de la file :\n");*/
     /*afficherFile(maFile);*/
-    time_to_solve(maFile, map);
+    i = 0;
+    j = 0;
+    while (map[i])
+      {
+	while (map[i][j])
+	  j++;
+	i++;
+      }
+    data.x_max = j;
+    data.y_max = i;
+    map_int = convert_tab(map, &data);
+    time_to_solve(maFile, map_int, &data);
     return (0);
 }

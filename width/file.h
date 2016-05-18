@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 16:54:13 2016 Thomas Fossaert
-** Last update Tue May 17 16:55:28 2016 Thomas Fossaert
+** Last update Wed May 18 15:57:07 2016 Thomas Fossaert
 */
 
 #ifndef H_FILE
@@ -30,24 +30,22 @@ void		*p_error(char *str);
 int		print_str(int i, char *str);
 int		my_strlen(char *str);
 int		find_path(int x, int y, t_data *data, char **map);
+int		**convert_tab(char **map, t_data *data);
 
-
-typedef struct Element Element;
-struct Element
+typedef struct		s_elem
 {
     int nombre;
-    Element *suivant;
-};
+    struct s_elem	*suivant;
+}			t_elem;
 
-typedef struct File File;
-struct File
+typedef struct	s_file
 {
-    Element *premier;
-};
+    t_elem *premier;
+}		t_file;
 
-File *initialiser();
-void enfiler(File *file, int nvNombre);
-int defiler(File *file);
-void afficherFile(File *file);
+t_file *initialiser();
+void enfiler(t_file *file, int nvNombre);
+int defiler(t_file *file);
+void afficherFile(t_file *file);
 
 #endif
