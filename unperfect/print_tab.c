@@ -1,11 +1,11 @@
 /*
-** print_tab.c for print_tab in /home/fossae_t/rendu/dante
+** print_tab.c for print in /home/fossae_t/rendu/dante/perfect
 **
 ** Made by Thomas Fossaert
 ** Login   <fossae_t@epitech.net>
 **
-** Started on  Mon May  9 10:54:21 2016 Thomas Fossaert
-** Last update Tue May 10 11:14:00 2016 Thomas Fossaert
+** Started on  Thu May 12 10:27:59 2016 Thomas Fossaert
+** Last update Thu May 19 10:53:02 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -49,10 +49,11 @@ void		print_my_tab_char(char **tab, int h)
   i = 0;
   while (i < h)
     {
-      printf("%s\n", tab[i]);
+      printf("%s", tab[i]);
       i++;
+      if (i < h)
+	printf("\n");
     }
-  printf("\n");
 }
 
 
@@ -70,7 +71,8 @@ void		print_my_tab_int(int **tab, int h, int w)
 	  printf("%d", tab[i][j]);
 	  j++;
 	}
-      printf("\n");
       i++;
+      if (i < h -1)
+	printf("\n");
     }
 }

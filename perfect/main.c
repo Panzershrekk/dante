@@ -5,22 +5,34 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 10:00:37 2016 Thomas Fossaert
-** Last update Thu May 12 16:37:00 2016 Thomas Fossaert
+** Last update Thu May 19 09:54:19 2016 Thomas Fossaert
 */
 
 #include	<alloca.h>
 #include	<stdlib.h>
 
+void		my_finish_tab(int **maze, int h, int w, int *valor)
+{
+  if (h == valor[0] - 2 && w == valor[1] - 2)
+    maze[valor[0] -1][valor[1] - 2] = 2;
+  else if (h == valor[0] - 1 && w == valor[1] - 3)
+    maze[valor[0] -1][valor[1] - 2] = 2;
+  else if (h == valor[0] - 3 && w == valor[1] - 1)
+    maze[valor[0] -2][valor[1] - 1] = 2;
+}
+
 int		**gen_maze(int **maze, int h, int w, int *valor)
 {
   int		rand;
 
+  rand = 0;
   printf("\n");
-  print_my_tab_int(maze, valor[0]);
+  print_my_tab_int(maze, valor[0], valor[1]);
   if ((h == valor[0] - 2 && w == valor[1] - 2) ||
       (h == valor[0] - 1 && w == valor[1] - 3) ||
       (h == valor[0] - 3 && w == valor[1] - 1))
     {
+      my_finish_tab(maze, h, w, valor);
       convert_tab(maze, valor[0], valor[1]);
       exit(0);
     }
@@ -54,7 +66,7 @@ int		**create_maze(int **maze, int h, int w)
 	}
       i++;
     }
-  maze[0][0] = 0;
+  maze[0][0] = 2;
   maze[h - 1][w - 1] = 0;
   return (maze);
 }

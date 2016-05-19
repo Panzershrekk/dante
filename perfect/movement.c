@@ -5,10 +5,11 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 11:11:55 2016 Thomas Fossaert
-** Last update Wed May 18 16:20:27 2016 Thomas Fossaert
+** Last update Thu May 19 10:25:33 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
+#include	<stdio.h>
 #include	<time.h>
 #include	"my.h"
 
@@ -26,45 +27,45 @@ int		my_rand(int min, int max)
 
 void		go_up(int **maze, int h, int w, int *valor)
 {
-  if (h - 1 <= 0)
+  if (h - 2 <= 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h - 2][w] != 0)
+  if (maze[h - 2][w] != 2)
     {
-      maze[h - 2][w] = 0;
-      maze[h - 1][w] = 0;
+      maze[h - 2][w] = 2;
+      maze[h - 1][w] = 2;
       gen_maze(maze, h - 2, w, valor);
     }
-  if (maze[h + 2][w] == 0 && maze[h + 1][w] == 0)
+  if (maze[h + 2][w] == 2 && maze[h + 1][w] == 2)
     gen_maze(maze, h + 2, w, valor);
   gen_maze(maze, h, w, valor);
 }
 
 void		go_right(int **maze, int h, int w, int *valor)
 {
-  if (w + 1 >= valor[1] - 1)
+  if (w + 2 >= valor[1] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w + 2] != 0)
+  if (maze[h][w + 2] != 2)
     {
-      maze[h][w + 2] = 0;
-      maze[h][w + 1] = 0;
+      maze[h][w + 2] = 2;
+      maze[h][w + 1] = 2;
       gen_maze(maze, h, w + 2, valor);
     }
-  if (maze[h][w - 2] == 0 && maze[h][w - 1] == 0)
+ if (maze[h][w - 2] == 2 && maze[h][w - 1] == 2)
     gen_maze(maze, h, w - 2, valor);
   gen_maze(maze, h, w, valor);
 }
 
 void		go_down(int **maze, int h, int w, int *valor)
 {
-  if (h + 1 >= valor[0] - 1)
+  if (h + 2 >= valor[0] - 1)
     gen_maze(maze, h, w, valor);
-  if (maze[h + 2][w] != 0)
+  if (maze[h + 2][w] != 2)
     {
-      maze[h + 2][w] = 0;
-      maze[h + 1][w] = 0;
+      maze[h + 2][w] = 2;
+      maze[h + 1][w] = 2;
       gen_maze(maze, h + 2, w, valor);
     }
-  if (maze[h - 2][w] == 0 && maze[h - 1][w] == 0)
+  if (maze[h - 2][w] == 2 && maze[h - 1][w] == 2)
     gen_maze(maze, h - 2, w, valor);
   gen_maze(maze, h, w, valor);
 }
@@ -72,15 +73,15 @@ void		go_down(int **maze, int h, int w, int *valor)
 
 void		go_left(int **maze, int h, int w, int *valor)
 {
-  if (w - 1 <= 0)
+  if (w - 3 < 0)
     gen_maze(maze, h, w, valor);
-  if (maze[h][w - 2] != 0)
+  if (maze[h][w - 2] != 2)
     {
-      maze[h][w - 2] = 0;
-      maze[h][w - 1] = 0;
+      maze[h][w - 2] = 2;
+      maze[h][w - 1] = 2;
       gen_maze(maze, h, w - 2, valor);
     }
-  if (maze[h][w + 2] == 0 && maze[h][w + 1] == 0)
+  if (maze[h][w + 2] == 2 && maze[h][w + 1] == 2)
     gen_maze(maze, h, w + 2, valor);
   gen_maze(maze, h, w, valor);
 }

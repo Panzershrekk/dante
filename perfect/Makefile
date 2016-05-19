@@ -1,34 +1,33 @@
 ##
-## Makefile for makefile in /home/fossae_t/rendu/dante/perfect
+## Makefile for dnte in /home/fossae_t/rendu/dante/perfect
 ## 
 ## Made by Thomas Fossaert
 ## Login   <fossae_t@epitech.net>
 ## 
-## Started on  Thu May 12 14:40:00 2016 Thomas Fossaert
-## Last update Thu May 12 14:40:01 2016 Thomas Fossaert
+## Started on  Thu May 19 10:02:57 2016 Thomas Fossaert
+## Last update Thu May 19 10:02:59 2016 Thomas Fossaert
 ##
 
-NAME		=		maze
+SRC=		main.c \
+		print_tab.c \
+		movement.c
 
-SRC		=		main.c \
-				print_tab.c \
-				movement.c \
+OBJ=            $(SRC:.c=.o)
 
-OBJ		=		$(src:.c=.o)
+CFLAGS=		-g
 
-RM		=		rm -f
+NAME=           maze
 
-CC		=		cc -o
+all:            $(NAME)
 
-all:		$(NAME)
 
 $(NAME):	$(OBJ)
-		$(CC) $(NAME) $(SRC) $(FLAG)
+		gcc -o $(NAME) $(OBJ)
 
 clean:
-		$(RM) $(OBJ)
+		rm -f $(OBJ)
 
 fclean:		clean
-		$(RM) $(NAME)
+		rm -f $(NAME)
 
 re:		fclean all
