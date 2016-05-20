@@ -5,13 +5,14 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Fri Apr  1 11:23:47 2016 Thomas Fossaert
-## Last update Wed May 18 15:22:47 2016 Thomas Fossaert
+## Last update Fri May 20 11:24:14 2016 Thomas Fossaert
 ##
 
 SRC=		main.c \
 		file.c \
 		solve.c \
-		maze.c
+		maze.c \
+		graph.c
 
 OBJ=            $(SRC:.c=.o)
 

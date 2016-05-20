@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 10:00:37 2016 Thomas Fossaert
-** Last update Thu May 19 09:54:19 2016 Thomas Fossaert
+** Last update Fri May 20 12:08:41 2016 Thomas Fossaert
 */
 
 #include	<alloca.h>
@@ -28,15 +28,9 @@ int		**gen_maze(int **maze, int h, int w, int *valor)
   rand = 0;
   printf("\n");
   print_my_tab_int(maze, valor[0], valor[1]);
-  if ((h == valor[0] - 2 && w == valor[1] - 2) ||
-      (h == valor[0] - 1 && w == valor[1] - 3) ||
-      (h == valor[0] - 3 && w == valor[1] - 1))
-    {
-      my_finish_tab(maze, h, w, valor);
-      convert_tab(maze, valor[0], valor[1]);
-      exit(0);
-    }
-  else
+  while ((h == valor[0] - 2 && w == valor[1] - 2) ||
+	 (h == valor[0] - 1 && w == valor[1] - 3) ||
+	 (h == valor[0] - 3 && w == valor[1] - 1))
     {
       rand = my_rand(1, 5);
       if (rand == 1)

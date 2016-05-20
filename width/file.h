@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 16:54:13 2016 Thomas Fossaert
-** Last update Wed May 18 15:57:07 2016 Thomas Fossaert
+** Last update Fri May 20 11:12:26 2016 Thomas Fossaert
 */
 
 #ifndef H_FILE
@@ -19,33 +19,52 @@
 #  define SUCCESS (0)
 # endif
 
-typedef struct	s_data
+typedef struct		s_node
 {
-  int x_max;
-  int y_max;
-}		t_data;
+  int			dest;
+  struct s_node		*next;
+}			t_node;
 
-char		**gen_tab(char *str);
-void		*p_error(char *str);
-int		print_str(int i, char *str);
-int		my_strlen(char *str);
-int		find_path(int x, int y, t_data *data, char **map);
-int		**convert_tab(char **map, t_data *data);
+typedef struct		s_list
+{
+  struct s_node		*head;
+}			t_list;
+
+typedef struct		s_graph
+{
+  int			V;
+  struct s_list		*array;
+}			t_graph;
+
+
+
+typedef struct		s_data
+{
+  int			x_max;
+  int			y_max;
+}			t_data;
+
+char			**gen_tab(char *str);
+void			*p_error(char *str);
+int			print_str(int i, char *str);
+int			my_strlen(char *str);
+int			find_path(int x, int y, t_data *data, char **map);
+int			**convert_tab(char **map, t_data *data);
 
 typedef struct		s_elem
 {
-    int nombre;
+    int			nombre;
     struct s_elem	*suivant;
 }			t_elem;
 
-typedef struct	s_file
+typedef struct		s_file
 {
-    t_elem *premier;
-}		t_file;
+    t_elem		*premier;
+}			t_file;
 
-t_file *initialiser();
-void enfiler(t_file *file, int nvNombre);
-int defiler(t_file *file);
-void afficherFile(t_file *file);
+t_file			*initialiser();
+void			enfiler(t_file *file, int nvNombre);
+int			defiler(t_file *file);
+void			afficherFile(t_file *file);
 
 #endif

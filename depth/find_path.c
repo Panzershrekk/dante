@@ -5,17 +5,18 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 11:19:02 2016 Thomas Fossaert
-** Last update Fri May 20 10:34:56 2016 Thomas Fossaert
+** Last update Fri May 20 12:17:27 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
+#include	<unistd.h>
 #include	"maze.h"
 
 int		can_move(int x, int y, char **maze, t_data *data)
 {
   if (x < 0 || x > data->x_max -1  || y < 0 || y > data->y_max -1)
     return (1);
-  if (maze[y][x] != '.' && maze[y][x] != 'S')
+  if (maze[y][x] != '*' && maze[y][x] != 'S')
     return (1);
   if (maze[y][x] == 'B')
     return (1);
@@ -27,31 +28,15 @@ int		four_way(int x, int y, char **maze, t_data *data)
   int		cpt;
 
   cpt = 0;
-  if (y > 0 && maze[y - 1][x] == '.')
+  if (y > 0 && maze[y - 1][x] == '*')
     cpt++;
-  if (y < data->y_max - 1 && maze[y + 1][x] == '.')
+  else if (y < data->y_max - 1 && maze[y + 1][x] == '*')
     cpt++;
-  if (maze[y][x + 1] != 0 && maze[y][x + 1] == '.')
+  else if (maze[y][x + 1] != 0 && maze[y][x + 1] == '*')
     cpt++;
-  if (x > 0 && maze[y][x - 1] == '.')
+  else if (x > 0 && maze[y][x - 1] == '*')
     cpt++;
   return (cpt);
-}
-
-int		back_into_it(int x, int y, char **maze, t_data *data)
-{
-  while (four_way(x, y, maze, data) < 2)
-    {
-      maze[y][x] = '1';
-      if (y > 0 && maze[y - 1][x] == '0')
-	y--;
-      if (y < data->y_max - 1 && maze[y + 1][x] == '0')
-	y++;
-      if (x < data->x_max - 1 && maze[y][x + 1] == '0')
-	x++;
-      if (x > 0 && maze[y][x - 1] == '0')
-	x--;
-    }
 }
 
 int             find_path(int x, int y, t_data *data, char **maze)
@@ -80,8 +65,14 @@ int             find_path(int x, int y, t_data *data, char **maze)
 		x++;
 	      else if (x > 0 && maze[y][x - 1] == '0')
 		x--;
+	      /* print_maze(maze);
+	      printf("\n\n");
+	      sleep(1);*/
 	    }
 	}
+      /*print_maze(maze);
+      printf("\n\n");
+      sleep(1);*/
       maze[y][x] = '0';
     }
   return (0);
