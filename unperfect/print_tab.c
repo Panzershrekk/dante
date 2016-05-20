@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 10:27:59 2016 Thomas Fossaert
-** Last update Thu May 19 10:53:02 2016 Thomas Fossaert
+** Last update Fri May 20 15:15:59 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -18,13 +18,10 @@ void		convert_tab(int **maze, int h, int w)
   int		j;
   char		**tab;
 
-  i = 0;
+  i = -1;
   tab = malloc(sizeof(char *) * h);
-  while (i < h)
-    {
-      tab[i] = malloc(sizeof(char) * w);
-      i++;
-    }
+  while (--i < h)
+    tab[i] = malloc(sizeof(char) * w);
   i = 0;
   while (i < h)
     {
@@ -55,7 +52,6 @@ void		print_my_tab_char(char **tab, int h)
 	printf("\n");
     }
 }
-
 
 void		print_my_tab_int(int **tab, int h, int w)
 {
