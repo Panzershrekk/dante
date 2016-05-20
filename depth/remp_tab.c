@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:30:44 2016 Thomas Fossaert
-** Last update Tue May 17 10:52:39 2016 Thomas Fossaert
+** Last update Fri May 20 15:44:19 2016 Antoine ZACZYK
 */
 
 #include		<stdio.h>
@@ -27,7 +27,7 @@ int			remp_tab(char **map, int i, int j, char *str)
   if ((fd = open(str, O_RDONLY)) == -1)
     return (print_str(2, "Couldn't open file.\n"));
   y = 0;
-  while (y < j)
+  while (y < j + 1)
     {
       x = -1;
       while (++x < i)
@@ -51,9 +51,9 @@ char		**create_map(int i, int j)
   char		**map;
 
   x = 0;
-  if ((map = malloc(sizeof(char *) * (j + 1))) == NULL)
+  if ((map = malloc(sizeof(char *) * (j + 2))) == NULL)
     return (p_error("Couldn't malloc.\n"));
-  while (x != j)
+  while (x < j + 1)
     {
       if ((map[x] = malloc(sizeof(char) * i + 1)) == NULL)
 	return (p_error("Couldn't malloc.\n"));

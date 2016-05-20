@@ -5,19 +5,24 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:35:43 2016 Thomas Fossaert
-** Last update Thu May 19 13:14:15 2016 Thomas Fossaert
+** Last update Fri May 20 16:34:20 2016 Antoine ZACZYK
 */
 
-#ifndef MAZE
-# define MAZE
+#ifndef	        MAZE_H_
 
-# ifndef ERROR
-#  define ERROR (1)
-# endif
+# define	MAZE_H
 
-# ifndef SUCCESS
-#  define SUCCESS (0)
-# endif
+#ifndef		ERROR_
+
+# define	ERROR (1)
+
+#endif		/* !MAZE_H_ */
+
+#ifndef		SUCCESS_
+
+# define	SUCCESS (0)
+
+#endif		/* !SUCCESS_ */
 
 typedef struct	s_data
 {
@@ -29,8 +34,10 @@ typedef struct	s_data
 
 char		**gen_tab(char *str);
 void		*p_error(char *str);
+void		free_my_tab(char **str);
+int		my_strlen(char *str);
 int		print_str(int i, char *str);
 int		my_strlen(char *str);
 int		find_path(int x, int y, t_data *data, char **map);
 
-#endif
+#endif		/* !MAZE_H_ */
