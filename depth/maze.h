@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:35:43 2016 Thomas Fossaert
-** Last update Tue May 17 13:33:51 2016 Thomas Fossaert
+** Last update Thu May 19 13:14:15 2016 Thomas Fossaert
 */
 
 #ifndef MAZE
@@ -23,6 +23,8 @@ typedef struct	s_data
 {
   int		x_max;
   int		y_max;
+  int		x_cross;
+  int		y_cross;
 }		t_data;
 
 char		**gen_tab(char *str);

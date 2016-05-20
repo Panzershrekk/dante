@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 10:21:45 2016 Thomas Fossaert
-** Last update Tue May 17 14:10:13 2016 Thomas Fossaert
+** Last update Fri May 20 10:35:30 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
@@ -24,7 +24,7 @@ void		print_maze(char **map)
     {
       while (map[i][j])
 	{
-	  if (map[i][j] == '0' || map[i][j] == 'E')
+	  if (map[i][j] == '0' || map[i][j] == 'E' || map[i][j] == 'S')
 	    map[i][j] = 'o';
 	  else if (map[i][j] == '1')
 	    map[i][j] = '.';

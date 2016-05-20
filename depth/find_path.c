@@ -5,13 +5,92 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 11:19:02 2016 Thomas Fossaert
-** Last update Tue May 17 13:46:14 2016 Thomas Fossaert
+** Last update Fri May 20 10:34:56 2016 Thomas Fossaert
 */
 
+#include	<stdio.h>
 #include	"maze.h"
 
-int		find_path(int x, int y, t_data *data, char **maze)
+int		can_move(int x, int y, char **maze, t_data *data)
 {
+  if (x < 0 || x > data->x_max -1  || y < 0 || y > data->y_max -1)
+    return (1);
+  if (maze[y][x] != '.' && maze[y][x] != 'S')
+    return (1);
+  if (maze[y][x] == 'B')
+    return (1);
+  return (0);
+}
+
+int		four_way(int x, int y, char **maze, t_data *data)
+{
+  int		cpt;
+
+  cpt = 0;
+  if (y > 0 && maze[y - 1][x] == '.')
+    cpt++;
+  if (y < data->y_max - 1 && maze[y + 1][x] == '.')
+    cpt++;
+  if (maze[y][x + 1] != 0 && maze[y][x + 1] == '.')
+    cpt++;
+  if (x > 0 && maze[y][x - 1] == '.')
+    cpt++;
+  return (cpt);
+}
+
+int		back_into_it(int x, int y, char **maze, t_data *data)
+{
+  while (four_way(x, y, maze, data) < 2)
+    {
+      maze[y][x] = '1';
+      if (y > 0 && maze[y - 1][x] == '0')
+	y--;
+      if (y < data->y_max - 1 && maze[y + 1][x] == '0')
+	y++;
+      if (x < data->x_max - 1 && maze[y][x + 1] == '0')
+	x++;
+      if (x > 0 && maze[y][x - 1] == '0')
+	x--;
+    }
+}
+
+int             find_path(int x, int y, t_data *data, char **maze)
+{
+  while (maze[data->y_max - 2][data->x_max - 1] != '0'
+	 && maze[data->y_max - 1][data->x_max - 2] != '0')
+    {
+      if (can_move(x, y - 1, maze, data) == 0)
+	y = y - 1;
+      else if (can_move(x + 1, y, maze, data) == 0)
+	x = x + 1;
+      else if (can_move(x, y + 1, maze, data) == 0)
+	y = y + 1;
+      else if (can_move(x - 1, y, maze, data) == 0)
+	x = x - 1;
+      else if (four_way(x, y, maze, data) == 0)
+	{
+	  while (four_way(x, y, maze, data) < 1)
+	    {
+	      maze[y][x] = '1';
+	      if (y > 0 && maze[y - 1][x] == '0')
+		y--;
+	      else if (y < data->y_max - 1 && maze[y + 1][x] == '0')
+		y++;
+	      else if (x < data->x_max - 1 && maze[y][x + 1] == '0')
+		x++;
+	      else if (x > 0 && maze[y][x - 1] == '0')
+		x--;
+	    }
+	}
+      maze[y][x] = '0';
+    }
+  return (0);
+}
+
+/*int		find_path(int x, int y, t_data *data, char **maze)
+{
+  printf("\n");
+  print_maze(maze);
   if (x < 0 || x > data->x_max -1  || y < 0 || y > data->y_max -1)
     return (1);
   if (maze[y][x] == 'E')
@@ -29,4 +108,4 @@ int		find_path(int x, int y, t_data *data, char **maze)
     return (0);
   maze[y][x] = '1';
   return (1);
-}
+  }*/
