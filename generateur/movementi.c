@@ -5,27 +5,15 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 11:11:55 2016 Thomas Fossaert
-** Last update Fri May 20 15:16:23 2016 Thomas Fossaert
+** Last update Fri May 20 15:36:02 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
 #include	<stdio.h>
 #include	<time.h>
-#include	"my.h"
+#include	"myi.h"
 
-int		my_rand(int min, int max)
-{
-  static int	f = 1;
-
-  if (f == 1)
-    {
-      srand(time(NULL));
-      f = 0;
-    }
-  return (rand() % (max - min) + min);
-}
-
-int		go_up(int **maze, int h, int w, int *valor)
+int		go_up_i(int **maze, int h, int w, int *valor)
 {
   if (h - 1 <= 0)
     return (h);
@@ -40,7 +28,7 @@ int		go_up(int **maze, int h, int w, int *valor)
   return (h);
 }
 
-int		go_right(int **maze, int h, int w, int *valor)
+int		go_right_i(int **maze, int h, int w, int *valor)
 {
   if (w + 1 >= valor[1] - 1)
     return (w);
@@ -55,7 +43,7 @@ int		go_right(int **maze, int h, int w, int *valor)
   return (w);
 }
 
-int		go_down(int **maze, int h, int w, int *valor)
+int		go_down_i(int **maze, int h, int w, int *valor)
 {
   if (h + 1 >= valor[0] - 1)
     return (h);
@@ -70,7 +58,7 @@ int		go_down(int **maze, int h, int w, int *valor)
   return (h);
 }
 
-int		go_left(int **maze, int h, int w, int *valor)
+int		go_left_i(int **maze, int h, int w, int *valor)
 {
   if (w - 1 <= 0)
     return (w);

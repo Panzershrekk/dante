@@ -5,18 +5,19 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu May 19 10:02:57 2016 Thomas Fossaert
-## Last update Thu May 19 10:02:59 2016 Thomas Fossaert
+## Last update Fri May 20 15:54:29 2016 Thomas Fossaert
 ##
 
 SRC=		main.c \
+		maini.c \
+		movementi.c \
 		print_tab.c \
 		movement.c
 
 OBJ=            $(SRC:.c=.o)
 
-CFLAGS=		-g
 
-NAME=           maze
+NAME=           generateur
 
 all:            $(NAME)
 
