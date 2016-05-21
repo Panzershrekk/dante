@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 11:11:55 2016 Thomas Fossaert
-** Last update Fri May 20 15:36:02 2016 Thomas Fossaert
+** Last update Sat May 21 15:14:39 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>
@@ -13,7 +13,7 @@
 #include	<time.h>
 #include	"myi.h"
 
-int		go_up_i(int **maze, int h, int w, int *valor)
+int		go_up_i(int **maze, int h, int w)
 {
   if (h - 1 <= 0)
     return (h);
@@ -58,7 +58,7 @@ int		go_down_i(int **maze, int h, int w, int *valor)
   return (h);
 }
 
-int		go_left_i(int **maze, int h, int w, int *valor)
+int		go_left_i(int **maze, int h, int w)
 {
   if (w - 1 <= 0)
     return (w);

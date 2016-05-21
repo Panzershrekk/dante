@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 10:00:37 2016 Thomas Fossaert
-** Last update Fri May 20 15:39:21 2016 Thomas Fossaert
+** Last update Sat May 21 15:38:43 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -25,15 +25,20 @@ void		my_finish_tab(int **maze, int h, int w, int *valor)
     maze[valor[0] -2][valor[1] - 1] = 2;
 }
 
-int		**gen_maze_p(int **maze, int h, int w, int *valor)
+void		gen_maze_p(int **maze, int h, int w, int *valor)
 {
   int		rand;
 
   rand = 0;
   while (maze[valor[0]-2][valor[1]-1] != 2
 	 && maze[valor[0]-2][valor[1]-2] != 2
-	 && maze[valor[0]-3][valor[1]-3] != 2)
+	 && maze[valor[0]-1][valor[1]-2] != 2)
     {
+      printf("%d", rand);
+      printf(" %d, %d", h, w);
+      usleep(300000);
+      printf("\n");
+      print_my_tab_int(maze, valor[0], valor[1]);
       rand = my_rand(1, 5);
       if (rand == 1)
 	h = go_up(maze, h, w, valor);
@@ -90,17 +95,23 @@ int		main(int ac, char **av)
 
   maze = NULL;
   if (ac != 4)
-    return (0);
+    {
+      fprintf(stderr, "Usage : ./generateur width height parfait/imparfait\n");
+      return (0);
+    }
   else
     {
       valor[0] = atoi(av[2]);
       valor[1] = atoi(av[1]);
-      maze = malloc_maze(maze, valor[0], valor[1]);
-      maze = create_maze(maze, valor[0], valor[1]);
-      if (strcmp(av[3], "parfait") == 0)
-	gen_maze_p(maze, 0, 0, valor);
-      else if(strcmp(av[3], "imparfait") == 0)
-	gen_maze_i(maze, 0, 0, valor);
+      if (manage_error(valor[0], valor[1]) == 0)
+	{
+	  maze = malloc_maze(maze, valor[0], valor[1]);
+	  maze = create_maze(maze, valor[0], valor[1]);
+	  if (strcmp(av[3], "parfait") == 0)
+	    gen_maze_p(maze, 0, 0, valor);
+	  else if (strcmp(av[3], "imparfait") == 0)
+	    gen_maze_i(maze, 0, 0, valor);
+	}
     }
   return (0);
 }
