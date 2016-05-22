@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 10:27:59 2016 Thomas Fossaert
-** Last update Fri May 20 15:12:59 2016 Thomas Fossaert
+** Last update Sun May 22 22:46:43 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -46,10 +46,11 @@ void		print_my_tab_char(char **tab, int h)
   i = 0;
   while (i < h)
     {
-      printf("%s\n", tab[i]);
+      printf("%s", tab[i]);
+      if (i < h - 1)
+	printf("\n");
       i++;
     }
-  printf("\n");
 }
 
 void		print_my_tab_int(int **tab, int h, int w)

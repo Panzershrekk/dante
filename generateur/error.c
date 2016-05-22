@@ -5,11 +5,37 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Sat May 21 14:46:31 2016 Thomas Fossaert
-** Last update Sat May 21 15:00:40 2016 Thomas Fossaert
+** Last update Sun May 22 22:42:49 2016 Thomas Fossaert
 */
 
 #include		<stdlib.h>
 #include		<stdio.h>
+
+void		my_free_double_int(int **tab, int h)
+{
+  int		i;
+
+  i = 0;
+  while (i != h)
+    {
+      free(tab[i]);
+      i++;
+    }
+  free(tab);
+}
+
+void		my_free_double_char(char **tab)
+{
+  int		i;
+
+  i = 0;
+  while (tab)
+    {
+      free(tab[i]);
+      i++;
+    }
+  free(tab);
+}
 
 int			manage_error(int h, int w)
 {

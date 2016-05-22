@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu May 12 11:11:55 2016 Thomas Fossaert
-** Last update Sat May 21 15:56:40 2016 Thomas Fossaert
+** Last update Sun May 22 22:29:02 2016 Thomas Fossaert
 */
 
 #include	<stdlib.h>

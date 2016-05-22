@@ -1,33 +1,33 @@
 /*
-** maze.c for maze in /home/fossae_t/rendu/dante/width
+** remp_tab.c for maze in /home/fossae_t/rendu/dante/depth
 **
 ** Made by Thomas Fossaert
 ** Login   <fossae_t@epitech.net>
 **
-** Started on  Tue May 17 16:28:34 2016 Thomas Fossaert
-** Last update Tue May 17 16:39:51 2016 Thomas Fossaert
+** Started on  Tue May 17 10:30:44 2016 Thomas Fossaert
+** Last update Sun May 22 22:00:55 2016 Thomas Fossaert
 */
 
-#include	<stdio.h>
-#include	<unistd.h>
-#include	<stdlib.h>
-#include	<sys/types.h>
-#include	<sys/stat.h>
-#include	<fcntl.h>
-#include	"file.h"
+#include		<stdio.h>
+#include		<unistd.h>
+#include		<stdlib.h>
+#include		<sys/types.h>
+#include		<sys/stat.h>
+#include		<fcntl.h>
+#include		"maze.h"
 
-int		remp_tab(char **map, int i, int j, char *str)
+int			remp_tab(char **map, int i, int j, char *str)
 {
-  int		x;
-  int		y;
-  int		fd;
-  int		ret;
-  char		buff;
+  int			x;
+  int			y;
+  int			fd;
+  int			ret;
+  char			buff;
 
   if ((fd = open(str, O_RDONLY)) == -1)
     return (print_str(2, "Couldn't open file.\n"));
   y = 0;
-  while (y < j)
+  while (y < j + 1)
     {
       x = -1;
       while (++x < i)
@@ -51,9 +51,9 @@ char		**create_map(int i, int j)
   char		**map;
 
   x = 0;
-  if ((map = malloc(sizeof(char *) * (j + 1))) == NULL)
+  if ((map = malloc(sizeof(char *) * (j + 2))) == NULL)
     return (p_error("Couldn't malloc.\n"));
-  while (x != j)
+  while (x < j + 1)
     {
       if ((map[x] = malloc(sizeof(char) * i + 1)) == NULL)
 	return (p_error("Couldn't malloc.\n"));
@@ -78,7 +78,7 @@ int		count_map(int fd, int *i, int *j)
       if (buff == '\n' && *i == 0)
 	{
 	  *i = count;
-	  *j += 1;;
+	  *j += 1;
 	}
       else if (buff == '\n')
 	*j += 1;
@@ -109,7 +109,7 @@ char		**gen_tab(char *str)
   return (map);
 }
 
-int		print_str(int fd, char *str)
+int			print_str(int fd, char *str)
 {
   write(1, str, my_strlen(str));
   if (fd == 2)

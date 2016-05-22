@@ -5,7 +5,7 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Fri Apr  1 11:23:47 2016 Thomas Fossaert
-## Last update Fri May 20 16:33:10 2016 Antoine ZACZYK
+## Last update Sun May 22 22:02:54 2016 Thomas Fossaert
 ##
 
 SRC=		main.c		\
@@ -15,7 +15,7 @@ SRC=		main.c		\
 
 OBJ=            $(SRC:.c=.o)
 
-CFLAGS=		-g
+CFLAGS=		-Wall -Werror -Wextra -g
 
 NAME=           solver
 

@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Fri Apr  1 11:41:59 2016 Thomas Fossaert
-** Last update Sat May 21 15:13:12 2016 Thomas Fossaert
+** Last update Sun May 22 22:45:04 2016 Thomas Fossaert
 */
 
 #ifndef		_MY_H_
@@ -21,5 +21,7 @@ int		go_left(int **maze, int h, int w, int *valor);
 int		my_rand(int min, int max);
 void		convert_tab(int **maze, int h, int w);
 void		my_finish_tab(int **maze, int h, int w, int *valor);
+void		my_free_double_int(int **maze, int h);
+void		my_free_double_char(char **maze);
 
 #endif		/* _MY_H_ */
