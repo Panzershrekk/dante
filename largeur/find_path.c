@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue May 17 11:19:02 2016 Thomas Fossaert
-** Last update Sun May 22 22:01:52 2016 Thomas Fossaert
+** Last update Sun May 22 22:57:22 2016 Thomas Fossaert
 */
 
 #include	<stdio.h>
@@ -67,7 +67,7 @@ int		find_x(int x, int y, t_data *data, char **maze)
   return (-1);
 }
 
-int             find_path(int x, int y, t_data *data, char **maze)
+int		find_path(int x, int y, t_data *data, char **maze)
 {
   while (maze[data->y_max - 2][data->x_max - 1] != '0'
 	 && maze[data->y_max - 1][data->x_max - 2] != '0')
