@@ -5,7 +5,7 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu May 19 10:02:57 2016 Thomas Fossaert
-## Last update Sat May 21 15:11:08 2016 Thomas Fossaert
+## Last update Mon May 30 01:30:59 2016 Antoine ZACZYK
 ##
 
 SRC=		main.c \
@@ -17,7 +17,7 @@ SRC=		main.c \
 
 OBJ=            $(SRC:.c=.o)
 
-CFLAGS=         -Wall -Werror -Wextra -g
+CFLAGS=         -Wall -Werror -Wextra
 
 NAME=           generateur
 

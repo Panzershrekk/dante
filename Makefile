@@ -5,7 +5,7 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Fri May 20 16:05:29 2016 Thomas Fossaert
-## Last update Sun May 22 22:52:42 2016 Thomas Fossaert
+## Last update Mon May 30 01:31:39 2016 Antoine ZACZYK
 ##
 
 all:
@@ -15,12 +15,12 @@ all:
 
 clean:
 		make clean -C profondeur/
-		make -C largeur/
-		make -C tournoi/
+		make clean -C largeur/
+		make clean -C tournoi/
 
 fclean:
 		make fclean -C profondeur/
-		make -C largeur/
-		make -C tournoi/
+		make fclean -C largeur/
+		make fclean -C tournoi/
 
 re:		fclean	all

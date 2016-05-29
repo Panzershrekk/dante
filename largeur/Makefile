@@ -1,11 +1,11 @@
 ##
-## Makefile for makefile in /home/fossae_t/rendu/PSU_2015_minishell2
+## Makefile for Makefile in /home/zaczyk_a/rendu/dante/dante
 ## 
-## Made by Thomas Fossaert
-## Login   <fossae_t@epitech.net>
+## Made by Antoine ZACZYK
+## Login   <zaczyk_a@epitech.net>
 ## 
-## Started on  Fri Apr  1 11:23:47 2016 Thomas Fossaert
-## Last update Sun May 22 22:02:54 2016 Thomas Fossaert
+## Started on  Mon May 30 01:30:36 2016 Antoine ZACZYK
+## Last update Mon May 30 01:30:38 2016 Antoine ZACZYK
 ##
 
 SRC=		main.c		\
@@ -15,7 +15,7 @@ SRC=		main.c		\
 
 OBJ=            $(SRC:.c=.o)
 
-CFLAGS=		-Wall -Werror -Wextra -g
+CFLAGS=		-Wall -Werror -Wextra
 
 NAME=           solver
 
